@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "pretest": "npx rimraf test-results playwright-report",
+    "test": "npx bddgen && npx playwright test",
+    "test:ui": "npx rimraf test-results playwright-report && npx bddgen && npx playwright test --ui"
+  },
   "keywords": [],
   "author": "Maruti",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.58.0",
-    "@types/node": "^25.0.10"
+    "@types/node": "^25.0.10",
+    "playwright-bdd": "^8.4.2"
   }
 }
