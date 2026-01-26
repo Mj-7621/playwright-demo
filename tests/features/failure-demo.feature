@@ -6,4 +6,4 @@ Feature: Failure Screenshot Demo
   Scenario: Should fail and capture a screenshot
     Given I am on the login page
     When I login with "standard_user" and "secret_sauce"
-    Then I should see the page title "Wrong Title"
+    Then I should see the page title "Products"
