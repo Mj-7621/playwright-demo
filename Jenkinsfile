@@ -14,9 +14,10 @@ pipeline {
         }
         
         stage('Run Tests') {
-            steps {
-                bat 'npx playwright test'
-            }
+           steps {
+                bat 'npm test'
+    }
+}
         }
     }
     
