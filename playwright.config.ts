@@ -46,20 +46,6 @@ export default defineConfig({
     },
 
     {
-      name: 'firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-        launchOptions: {
-          firefoxUserPrefs: {
-            'toolkit.startup.max_resumed_crashes': -1,
-            'browser.sessionstore.resume_from_crash': false,
-          },
-          args: ['--no-sandbox'],
-        },
-      },
-    },
-
-    {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
