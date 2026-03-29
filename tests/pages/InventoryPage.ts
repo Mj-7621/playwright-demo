@@ -3,26 +3,28 @@ import { type Page, type Locator, expect } from '@playwright/test';
 export class InventoryPage {
     readonly page: Page;
     readonly title: Locator;
-    readonly addToCartBackpack: Locator;
-    readonly removeBackpack: Locator;
     readonly cartBadge: Locator;
     readonly cartLink: Locator;
 
     constructor(page: Page) {
         this.page = page;
         this.title = page.locator('.title');
-        this.addToCartBackpack = page.locator('[data-test="add-to-cart-sauce-labs-backpack"]');
-        this.removeBackpack = page.locator('[data-test="remove-sauce-labs-backpack"]');
         this.cartBadge = page.locator('.shopping_cart_badge');
         this.cartLink = page.locator('.shopping_cart_link');
     }
 
-    async addBackpackToCart() {
-        await this.addToCartBackpack.click();
+    private toDataTestId(productName: string): string {
+        return productName.toLowerCase().replace(/ /g, '-');
     }
 
-    async removeBackpackFromCart() {
-        await this.removeBackpack.click();
+    async addProductToCart(productName: string) {
+        const testId = this.toDataTestId(productName);
+        await this.page.locator(`[data-test="add-to-cart-${testId}"]`).click();
+    }
+
+    async removeProductFromCart(productName: string) {
+        const testId = this.toDataTestId(productName);
+        await this.page.locator(`[data-test="remove-${testId}"]`).click();
     }
 
     async goToCart() {

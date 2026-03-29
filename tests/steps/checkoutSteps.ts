@@ -33,5 +33,5 @@ When('I finish the checkout', async ({ page }) => {
 
 Then('I should see the order confirmation {string}', async ({ page }, message: string) => {
     const checkoutPage = new CheckoutPage(page);
-    await checkoutPage.expectOrderComplete();
+    await checkoutPage.expectOrderComplete(message);
 });

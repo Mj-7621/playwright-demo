@@ -6,16 +6,12 @@ const { When, Then } = createBdd();
 
 When('I add {string} to the cart', async ({ page }, product: string) => {
     const inventoryPage = new InventoryPage(page);
-    if (product === 'Sauce Labs Backpack') {
-        await inventoryPage.addBackpackToCart();
-    }
+    await inventoryPage.addProductToCart(product);
 });
 
 When('I remove {string} from the cart', async ({ page }, product: string) => {
     const inventoryPage = new InventoryPage(page);
-    if (product === 'Sauce Labs Backpack') {
-        await inventoryPage.removeBackpackFromCart();
-    }
+    await inventoryPage.removeProductFromCart(product);
 });
 
 Then('the cart badge should show {string}', async ({ page }, count: string) => {

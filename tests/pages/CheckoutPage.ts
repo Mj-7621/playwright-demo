@@ -37,8 +37,8 @@ export class CheckoutPage {
         await expect(this.page).toHaveURL(/checkout-complete\.html/);
     }
 
-    async expectOrderComplete() {
-        await expect(this.completeHeader).toHaveText('Thank you for your order!');
+    async expectOrderComplete(expectedMessage: string) {
+        await expect(this.completeHeader).toHaveText(expectedMessage);
     }
 
     async expectItemCount(count: number) {

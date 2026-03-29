@@ -1,14 +1,13 @@
 {
   "name": "playwright-demo",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "BDD test automation framework using Playwright and Cucumber for the SauceDemo e-commerce site",
   "scripts": {
     "pretest": "npx rimraf test-results playwright-report",
     "test": "npx bddgen && npx playwright test",
     "test:ui": "npx rimraf test-results playwright-report && npx bddgen && npx playwright test --ui"
   },
-  "keywords": [],
+  "keywords": ["playwright", "bdd", "cucumber", "test-automation", "e2e"],
   "author": "Maruti",
   "license": "ISC",
   "devDependencies": {
